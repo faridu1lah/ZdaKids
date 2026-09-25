@@ -1,0 +1,27 @@
+{
+  "name": "zdakids",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@11.10.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "dev:api": "pnpm db:generate && pnpm --filter @zdakids/api dev",
+    "dev:mobile": "pnpm --filter @zdakids/types build && pnpm --filter @zdakids/config build && pnpm --filter @zdakids/mobile dev",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "format": "prettier --write .",
+    "db:generate": "pnpm --filter @zdakids/api prisma:generate",
+    "db:migrate": "pnpm --filter @zdakids/api prisma:migrate",
+    "db:studio": "pnpm --filter @zdakids/api prisma:studio"
+  },
+  "devDependencies": {
+    "prettier": "^3.6.2",
+    "turbo": "^2.11.4",
+    "typescript": "^6.0.3"
+  }
+}
